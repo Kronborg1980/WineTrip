@@ -3,202 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juuls x Smyril Line | Frankrig 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Juuls x Smyril Line | Premium Tour 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --juuls-red: #7E1C31;
             --smyril-blue: #003865;
             --gold: #C5A059;
-            --off-white: #FAF9F6;
-            --text-dark: #1a1a1a;
-            --bg-glass: rgba(255, 255, 255, 0.9);
+            --bg-light: #F9F9F7;
+            --text-dark: #1A1A1A;
+            --glass-bg: rgba(255, 255, 255, 0.95);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--off-white);
+            background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* --- HEADER --- */
+        /* --- HERO & HEADER --- */
         header {
-            background: linear-gradient(135deg, var(--smyril-blue) 0%, #001a30 100%);
-            color: white;
-            padding: 50px 20px;
+            background: linear-gradient(135deg, #001a30 0%, var(--smyril-blue) 100%);
+            padding: 50px 20px 40px;
             text-align: center;
-            border-bottom: 5px solid var(--gold);
+            color: white;
+            position: relative;
+            border-bottom: 4px solid var(--gold);
         }
 
-        .logo-wrap {
+        .logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 30px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .logo {
-            padding: 10px 20px;
-            font-family: 'Playfair Display', serif;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
+        .logos img {
+            height: 40px;
+            object-fit: contain;
         }
 
-        .logo-juuls { background: var(--juuls-red); border: 1px solid var(--gold); }
-        .logo-smyril { background: white; color: var(--smyril-blue); }
+        .cross { color: var(--gold); font-size: 1.2rem; opacity: 0.7; }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .subtitle {
-            color: var(--gold);
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-weight: 300;
-            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
         }
 
-        /* --- NAV --- */
+        /* --- STICKY NAV --- */
         nav {
             position: sticky;
             top: 0;
-            background: var(--bg-glass);
+            background: var(--glass-bg);
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-around;
             padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             z-index: 1000;
+            border-bottom: 1px solid #eee;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
             text-align: center;
+            transition: color 0.3s;
         }
 
-        nav a span { display: block; color: var(--juuls-red); font-size: 1.2rem; }
+        nav a span { display: block; color: var(--juuls-red); font-size: 1.3rem; font-family: 'Playfair Display', serif; }
+        nav a:hover { color: var(--smyril-blue); }
 
-        /* --- CONTENT --- */
+        /* --- CONTENT & CARDS --- */
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px 60px;
         }
 
-        .day-section { margin-bottom: 60px; }
+        .day-section {
+            margin-top: 50px;
+        }
+
+        .day-banner {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: -30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
 
         .day-header {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--smyril-blue);
             margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .day-header::after {
-            content: "";
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold), transparent);
+            background: var(--bg-light);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            margin-left: 20px;
+            border-bottom: 3px solid var(--juuls-red);
         }
 
         .card {
             background: white;
             border-radius: 15px;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 6px solid var(--juuls-red);
-            transition: transform 0.3s ease;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            border-left: 5px solid var(--juuls-red);
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
         }
 
         .time-badge {
-            background: var(--off-white);
-            color: var(--gold);
-            padding: 5px 12px;
-            border-radius: 20px;
+            color: var(--smyril-blue);
             font-weight: 700;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
         h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--smyril-blue);
+            color: var(--text-dark);
+            margin-bottom: 5px;
         }
 
         .address {
-            display: block;
-            font-style: italic;
-            color: #777;
+            color: #888;
+            font-size: 0.85rem;
             margin-bottom: 15px;
-            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .description {
-            font-size: 0.95rem;
-            color: #444;
-            margin-bottom: 20px;
-        }
+        .description { font-size: 0.95rem; color: #555; margin-bottom: 20px; }
 
         .fact-box {
             background: #fdfaf5;
-            border: 1px solid #eee;
             padding: 15px;
             border-radius: 8px;
             font-size: 0.85rem;
+            border: 1px solid #f3ebd8;
+            margin-bottom: 20px;
         }
 
-        .fact-box strong { color: var(--juuls-red); display: block; margin-bottom: 5px; }
+        .fact-box strong { color: var(--juuls-red); }
 
+        /* --- BUTTONS --- */
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--bg-light);
+            color: var(--smyril-blue);
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .map-btn:hover {
+            background: var(--smyril-blue);
+            color: white;
+            border-color: var(--smyril-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 56, 101, 0.2);
+        }
+
+        .map-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* --- MISC --- */
         .drive-meta {
             text-align: center;
-            margin: 30px 0;
+            margin: 40px 0;
             color: #aaa;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .drive-meta::before, .drive-meta::after {
+            content: "";
+            height: 1px;
+            width: 50px;
+            background: #ddd;
         }
 
-        /* --- FOOTER --- */
         footer {
             background: var(--text-dark);
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
-        .footer-logos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            opacity: 0.5;
-            font-size: 0.7rem;
-        }
-
-        /* Responsive */
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 2rem; }
+            .logos { flex-direction: column; gap: 15px; border-radius: 20px; }
+            .logos img { height: 35px; }
+            .day-header { font-size: 1.8rem; margin-left: 10px; }
             .card { padding: 20px; }
         }
     </style>
@@ -206,10 +259,10 @@
 <body>
 
     <header>
-        <div class="logo-wrap">
-            <div class="logo logo-juuls">Juuls Engros</div>
-            <div style="color: var(--gold); font-size: 1.5rem;">&</div>
-            <div class="logo logo-smyril">Smyril Line</div>
+        <div class="logos">
+            <img src="https://logo.clearbit.com/juuls.dk" alt="Juuls Engros Logo" onerror="this.src='https://via.placeholder.com/150x50/7E1C31/FFFFFF?text=JUULS+ENGROS'">
+            <span class="cross">✕</span>
+            <img src="https://logo.clearbit.com/smyrilline.dk" alt="Smyril Line Logo" onerror="this.src='https://via.placeholder.com/150x50/003865/FFFFFF?text=SMYRIL+LINE'">
         </div>
         <p class="subtitle">Eksklusiv Vintur 2026</p>
         <h1>Frankrig Rundt</h1>
@@ -225,110 +278,150 @@
     <div class="container">
         
         <section id="dag1" class="day-section">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=80" alt="Paris" class="day-banner">
             <h2 class="day-header">Fredag: Paris</h2>
             
             <div class="card">
-                <span class="time-badge">16:00 - 17:30</span>
-                <h3>Ankomst & Check-in</h3>
-                <span class="address">Hôtel Aston, 12 Cité Bergère, 75009 Paris</span>
-                <p class="description">Velkommen til Paris. Vi starter i det smarte 9. arrondissement på et hotel med masser af parisisk atmosfære.</p>
+                <div class="card-header">
+                    <h3>Ankomst & Check-in</h3>
+                    <span class="time-badge">16:00</span>
+                </div>
+                <span class="address">📍 Hôtel Aston, 12 Cité Bergère, 75009 Paris</span>
+                <p class="description">Velkommen til byernes by. Vi henter bilerne kl. 16.30 og tjekker ind på vores charmerende hotel gemt i en af byens smukke passager.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Aston+Paris+12+Cite+Bergere" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
 
             <div class="card" style="border-left-color: var(--smyril-blue);">
-                <span class="time-badge">18:00</span>
-                <h3>Golden Promise Bar - Sake Masterclass</h3>
-                <p class="description">En rejse ind i fermenteringens verden. Under La Maison du Saké smager vi på det vildeste risvin i deres legendariske kælder.</p>
-                <div class="fact-box">
-                    <strong>Nørd-info:</strong> Golden Promise er en af Paris' mest eksklusive barer for både Whisky og Sake. Her finder man flasker, der ikke findes andre steder i Europa.
+                <div class="card-header">
+                    <h3>Golden Promise Bar</h3>
+                    <span class="time-badge">18:00</span>
                 </div>
+                <span class="address">📍 11 rue Tiquetonne, 75002 Paris</span>
+                <p class="description">Sake Masterclass. Vi dykker ned i fermenteringens verden i kælderen under La Maison du Saké – en af Europas mest anerkendte barer.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Golden+Promise+Bar+Paris" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
 
             <div class="card">
-                <span class="time-badge">21:00</span>
-                <h3>Middag: Restaurant L'Apibo</h3>
-                <span class="address">31 rue Tiquetonne, 75002 Paris</span>
-                <p class="description">Moderne fransk gastronomi af Chef Antony Boucher. En lille, intim perle hvor smagen er i absolut centrum.</p>
+                <div class="card-header">
+                    <h3>Middag: L'Apibo</h3>
+                    <span class="time-badge">21:00</span>
+                </div>
+                <span class="address">📍 31 rue Tiquetonne, 75002 Paris</span>
+                <p class="description">Vi slutter aftenen hos Chef Antony Boucher. Moderne, præcis fransk bistronomi i verdensklasse.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Restaurant+L'Apibo+Paris" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
         </section>
 
-        <div class="drive-meta">🚌 4,5 timers kørsel mod Bourgogne</div>
+        <div class="drive-meta">🚗 4,5 timers kørsel (Afgang Lør 09:00)</div>
 
         <section id="dag2" class="day-section">
+            <img src="https://images.unsplash.com/photo-1590059530514-6f09e8674996?auto=format&fit=crop&w=1000&q=80" alt="Bourgogne Vineyards" class="day-banner">
             <h2 class="day-header">Lørdag: Bourgogne</h2>
             
             <div class="card">
-                <span class="time-badge">14:00</span>
-                <h3>SARL Capitain-Gagnerot</h3>
-                <span class="address">Ladoix-Serrigny</span>
-                <p class="description">Vi besøger et historisk domæne fra 1802. Her skal vi smage på deres fantastiske hvide og røde vine fra Côte de Beaune.</p>
-                <div class="fact-box">
-                    <strong>Huset:</strong> Kendt for deres Corton-Charlemagne Grand Cru og Ladoix 1er Cru. De arbejder med stor respekt for naturen (Ecocert certificeret).
+                <div class="card-header">
+                    <h3>SARL Capitain-Gagnerot</h3>
+                    <span class="time-badge">14:00</span>
                 </div>
+                <span class="address">📍 Ladoix-Serrigny (Côte de Beaune)</span>
+                <p class="description">Besøg hos domænet fra 1802. Glæd jer til smagning af deres berømte Corton-Charlemagne og Ladoix 1er Cru.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=SARL+Capitain-Gagnerot+Ladoix-Serrigny" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
 
-            <div class="drive-meta">🚌 2 timers kørsel mod Chablis</div>
+            <div class="drive-meta">🚗 90-120 min kørsel mod Chablis</div>
 
             <div class="card" style="border-left-color: var(--gold);">
-                <span class="time-badge">17:15</span>
-                <h3>Domaine Guy Robin et Fils</h3>
-                <span class="address">Chablis</span>
-                <p class="description">Aperitif og snacks hos en af de mest spændende producenter i Chablis. Marie-Ange Robin styrer slagets gang her.</p>
-                <div class="fact-box">
-                    <strong>Terroir:</strong> Her smager vi på "Vieilles Vignes" (gamle vinstokke). Domaine Guy Robin har nogle af de ældste stokke i Chablis, hvilket giver en ekstrem mineralitet og dybde.
+                <div class="card-header">
+                    <h3>Domaine Guy Robin et Fils</h3>
+                    <span class="time-badge">17:15</span>
                 </div>
+                <span class="address">📍 Chablis</span>
+                <p class="description">Aperitif og snacks. Vi smager på vine fra nogle af Chablis' ældste vinstokke (Vieilles Vignes) dyrket på Kimmeridgien-jordbund.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Domaine+Guy+Robin+et+Fils+Chablis" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
 
             <div class="card">
-                <span class="time-badge">20:15</span>
-                <h3>Check-in: Hotel du Centre</h3>
-                <span class="address">Tonnerre</span>
-                <p class="description">Vi lander i den hyggelige by Tonnerre. Mulighed for middag på hotellet for de sultne.</p>
+                <div class="card-header">
+                    <h3>Hotel du Centre</h3>
+                    <span class="time-badge">20:15</span>
+                </div>
+                <span class="address">📍 Tonnerre</span>
+                <p class="description">Check-in og mulighed for at spise middag på hotellet. Tonnerre er en smuk historisk by, perfekt til at fordøje dagens indtryk.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Hotel+du+Centre+Tonnerre" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
         </section>
 
+        <div class="drive-meta">🚗 120-140 min kørsel (Afgang Søn 09:30)</div>
+
         <section id="dag3" class="day-section">
+            <img src="https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?auto=format&fit=crop&w=1000&q=80" alt="Champagne" class="day-banner">
             <h2 class="day-header">Søndag: Champagne</h2>
 
             <div class="card" style="border-left-color: #f39c12;">
-                <span class="time-badge">12:00</span>
-                <h3>Champagne Valérie et Gaël Dupont</h3>
-                <span class="address">Reuves</span>
-                <p class="description">Frokost og besøg hos denne innovative producent i det sydlige Champagne (Côte de Sézanne).</p>
-                <div class="fact-box">
-                    <strong>Stilen:</strong> De er pionerer inden for regenerativt landbrug og agroøkologi. Glæd jer til at smage Champagne med masser af energi og ren frugt.
+                <div class="card-header">
+                    <h3>Valérie et Gaël Dupont</h3>
+                    <span class="time-badge">12:00</span>
                 </div>
+                <span class="address">📍 Reuves</span>
+                <p class="description">Frokost og besøg. De arbejder ud fra agroøkologi og regenerativt landbrug. Forvent stor renhed og salte, mineralske bobler.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Champagne+Valerie+et+Gael+Dupont+Reuves" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
 
             <div class="card" style="border-left-color: var(--smyril-blue);">
-                <span class="time-badge">17:00</span>
-                <h3>Champagne M. Brugnon</h3>
-                <span class="address">Ecueil / Reims-Bezannes</span>
-                <p class="description">Vi slutter af hos Alain Brugnon. Her skal vi se kælderen og derefter have den store afslutning.</p>
-                <div class="fact-box">
-                    <strong>Aftenens brag:</strong> Vi runder turen af med <strong>Middag og Grill</strong> hos Brugnon. Bobler i glasset og masser af røverhistorier.
+                <div class="card-header">
+                    <h3>Champagne M. Brugnon</h3>
+                    <span class="time-badge">17:00</span>
                 </div>
+                <span class="address">📍 Ecueil / Indkvartering: Reims-Bezannes</span>
+                <p class="description">Efter indkvartering på Hotel Akena tager vi til Ecueil. Her besøger vi Alain Brugnon (Premier Cru). Aftenen står på uformel middag og grill med huset!</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Champagne+M.+Brugnon+Ecueil" target="_blank" class="map-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute på Google Maps
+                </a>
             </div>
         </section>
 
         <section id="dag4" class="day-section">
-            <h2 class="day-header">Mandag: Hjemrejse</h2>
-            <div class="card">
-                <span class="time-badge">09:00</span>
-                <h3>Afgang mod CDG</h3>
-                <p class="description">Vi pakker bilerne og kører mod Charles de Gaulle lufthavnen for aflevering og check-out. Tak for en fantastisk tur!</p>
+            <h2 class="day-header" style="border-bottom-color: #aaa;">Mandag: Hjemrejse</h2>
+            <div class="card" style="border-left-color: #aaa;">
+                <div class="card-header">
+                    <h3>Afgang mod CDG Lufthavn</h3>
+                    <span class="time-badge">09:00</span>
+                </div>
+                <p class="description">Vi pakker bilerne for sidste gang og sætter kursen mod Paris Charles de Gaulle for aflevering af bil og flyvetur hjem.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Charles+de+Gaulle+Airport" target="_blank" class="map-btn" style="color: #666; border-color: #ccc;">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Vis rute til Lufthavn
+                </a>
             </div>
         </section>
 
     </div>
 
     <footer>
-        <p>God tur til alle deltagere!</p>
-        <div class="footer-logos">
-            <span>JUULS ENGROS</span>
-            <span>|</span>
-            <span>SMYRIL LINE</span>
-        </div>
-        <p style="margin-top: 20px; font-size: 0.6rem; opacity: 0.5;">© 2026 - Rejseprogram Frankrig</p>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px;">God tur til alle!</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Husk at drikke vand indimellem vinene.</p>
     </footer>
 
 </body>
